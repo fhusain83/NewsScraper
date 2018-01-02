@@ -1,0 +1,69 @@
+
+
+<nav class="navbar navbar-default" style="margin:0px;">
+<div class="container-fluid">
+<div class="navbar-header" style="background:cornflowerblue;">
+<button type="button" class="navbar-toggle collapsed" data-toggle="collapse"></button>
+<a class="navbar-brand" href='#' style="color:white;">Mongo Scraper</a>
+<a class="navbar-brand" href='#' style="color:white;">Home</a>
+<a class="navbar-brand" href='#h' style="color:white; background:red">Scrape New Articles!</a>
+</div>
+</div>
+</nav>
+<div class="row-fluid">
+<div class="jumbotron" style="background:transparent margin:0px;padding:0px;">
+<img src="/images/news.jpg" style="width:100%;filter:brightness(30%);"/>
+ <span style="position:absolute;top:200px;font-family:'Times New Roman';font-style:bold;font-size:80px;color:white;padding-left:300px;">MONGO SCRAPER<br /><span style="font-size:20px;padding-left:250px;padding-top:0px;">New York Times Edition</span></span>
+
+
+<div class="container">
+<table>
+<tbody>
+{{#each articles}}
+<tr>
+<td>
+<div class="panel panel-default" style="width:1200px;margin:10px;">
+  <div class="panel-heading" style="background:Dodgerblue;color:white;font-size:30px;">
+  <div>
+  {{this.title}}
+  </div>
+  <div>
+  {{#if this._id}}
+   <button class="btn btn-default" id={{this._id}} style="background:green;color:white;">Add Note</button>
+  {{/if}}
+  </div>
+  </div>
+ <div class="panel-body" style="font-size:20px">{{this.link}}</div>
+</div>
+</td>
+</tr>
+{{/each}}
+</tbody>
+</table>
+
+
+
+
+</div>
+</div>
+</div>
+</div>
+<div id="myModal" class="modal modal-fixed-footer">
+    
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title" id="Notes">Notes For Article:{{id}}</h4>
+            </div>
+            <div class="modal-body">
+             {{Notes}}
+             <br/>
+              <label  style="height:200px;;width:90%;border-style:solid;border-width:1px;">{{Notes}}</label>
+              <br/>
+             <textarea type="text" placeholder="New Note" style="height90%;width:90%;"></textarea>
+            </div>
+                <div class="modal-footer">
+              <button type="button" class="btn btn default" data-dismiss="modal" aria-hidden="true">Save Note</button>
+            </div>
+        </div>
+  
+</div>
